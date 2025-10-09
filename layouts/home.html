@@ -1,3 +1,10 @@
 {{ define "main" }}
-Hello there
+{{ .Content }}
+<ul class="unstyled">
+  {{ $sortedPages := (where site.RegularPages "Section" "paintings") }}
+  {{ $sortedPages = sort $sortedPages "Path" }}
+  {{ range $sortedPages }}
+  {{ .Render "view_card" }}
+  {{ end }}
+</ul>
 {{ end }}

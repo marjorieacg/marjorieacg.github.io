@@ -1,23 +1,35 @@
-<header>
-  <div class="header-content">
-    <div class="header-left">
-      <span class="header-title">
-        Marjorie Aucaigne
-      </span>
-      <hr>
-      <span class="header-subtitle">Artiste | Peinture à l'huile</span>
+<header id="header">
+  <div class="header-content-background">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-left">
+          <span class="header-title">
+            Marjorie Aucaigne
+          </span>
+          <div class="h-divider"></div>
+          <div class="header-subtitle">
+            <span>Artiste</span>
+            {{ $image := resources.Get "img/nature.png" }}
+            <img id="m-brand" src="{{ $image.Permalink }}" alt="{{ .Site.Title }}" />
+            <!--🌿&nbsp;&#x1FAA8&nbsp;-->
+            <span>Peinture à l'huile</span>
+          </div>
+        </div>
+        <nav class="header-right">
+          <ul class="nav-list unstyled">
+            <li><a href="#header">Acceuil</a></li>
+            <li><a href="#contact-form">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
-    <nav class="header-right">
-      <ul class="nav-list">
-        <li>Collection</li>
-        <li>Accueil</li>
-      </ul>
-    </nav>
   </div>
   <div class="sub-header">
-    <div class="text">
-      Une collection de peintures à l'huile inspirée par les reliefs, les matières
-      et les couleurs intenses d'une nature vivante et indomptable.
+    <div class="container">
+      <div class="text">
+        Une collection de peintures à l'huile inspirée par les reliefs, les matières
+        et les couleurs intenses d'une nature vivante et indomptable.
+      </div>
     </div>
   </div>
 </header>
