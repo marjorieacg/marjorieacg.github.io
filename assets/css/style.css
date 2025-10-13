@@ -60,9 +60,15 @@ ul.unstyled {
   margin: unset;
 }
 
+.display-none {
+  display: none;
+}
+
 /* HEADER */
 header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100vw;
   z-index: 100;
   color: black;
   /* border-top-left-radius: 0;
@@ -129,7 +135,7 @@ header {
   font-size: 0.8rem;
 }
 
-.sub-header {
+#sub-header {
   margin-top: calc(-1 * var(--border-radius-sections));
   background-color: #5F341B;
   color: #EFE2D4;
@@ -138,9 +144,15 @@ header {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   font-weight: 600;
+  transition: transform 0.2s ease-in-out;
+  transform: initial;
 
   & .text {
     padding-top: var(--border-radius-sections);
+  }
+
+  &.hidden {
+    transform: translateY(-100%);
   }
 }
 

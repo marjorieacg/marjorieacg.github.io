@@ -16,14 +16,14 @@
         </div>
         <nav class="header-right">
           <ul class="nav-list unstyled">
-            <li><a href="#header">Acceuil</a></li>
+            <li><a href="#main">Acceuil</a></li>
             <li><a href="#contact-form">Contact</a></li>
           </ul>
         </nav>
       </div>
     </div>
   </div>
-  <div class="sub-header">
+  <div id="sub-header">
     <div class="container">
       <div class="text">
         Une collection de peintures à l'huile inspirée par les reliefs, les matières
@@ -31,4 +31,18 @@
       </div>
     </div>
   </div>
+
+  <!-- Hide sub-header on scroll -->
+  <script>
+    const subHeader = document.getElementById("sub-header")
+
+    function toggleSubHeader() {
+      if (window.scrollY > 50) {
+        subHeader.classList.add("hidden")
+      } else {
+        subHeader.classList.remove("hidden")
+      }
+    }
+    document.addEventListener("scroll", toggleSubHeader)
+  </script>
 </header>

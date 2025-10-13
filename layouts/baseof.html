@@ -11,6 +11,21 @@
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" }}
+
+  <!-- Script for fixed header -->
+  <script>
+    const header = document.getElementById("header")
+    const main = document.getElementById("main")
+    const footer = document.getElementById("contact-form")
+
+    function resizeMain() {
+      main.style.marginTop = header.offsetHeight + "px"
+      main.style.scrollMarginTop = + header.offsetHeight + "px"
+      footer.style.scrollMarginTop = + header.offsetHeight + "px"
+    }
+    resizeMain()
+    document.addEventListener("resize", resizeMain)
+  </script>
 </body>
 
 </html>
