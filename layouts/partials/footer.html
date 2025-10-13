@@ -14,29 +14,75 @@
       <h2>Si le coeur vous en dit, écrivez-moi.</h2>
     </div>
   </div>
-  <div id="contact-form" class="contact-form">
+  <div class="contact-form">
     <div class="container">
-      <form>
+      <form id="contact-form" action="https://formspree.io/f/mgvnpyqr" method="POST">
         <h3>Coordonnées</h3>
         <div class="input-block">
           <label for="name">Nom :</label>
-          <input id="name" type="name" required />
+          <input name="name" type="name" required />
         </div>
         <div class="input-block">
           <label for="email">E-mail :</label>
-          <input id="email" type="email" required />
+          <input name="email" type="email" required />
         </div>
         <div class="input-block">
           <label for="message">Message :</label>
-          <textarea id="message" rows="7" required></textarea>
+          <textarea name="message" rows="7" required></textarea>
         </div>
 
         <div class="input-block" style="justify-content: end;">
           <button type="submit">Envoyer</button>
         </div>
 
+        <div class="form-status">
+          <div class="form-message success">
+            <i class="fa-solid fa-circle-check color-success"></i>
+            <span>Merci pour votre message!</span>
+          </div>
+          <div class="form-message error">
+            <i class="fa-solid fa-circle-check color-error"></i>
+            <span>Oops! Il y a eu un problème lors de l'envoi du formulaire.</span>
+          </div>
+        </div>
+
       </form>
     </div>
+    <!-- CONTACT FORM SCRIPT -->
+    <script>
+      var form = document.getElementById("contact-form");
+
+      async function handleSubmit(event) {
+        event.preventDefault();
+        var status = form.getElementsByClassName("form-status")[0];
+        var data = new FormData(event.target);
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(response => {
+          if (response.ok) {
+            status.classList.remove("error");
+            status.classList.add("success");
+            form.reset()
+          } else {
+            response.json().then(data => {
+              if (Object.hasOwn(data, 'errors')) {
+                status.classList.remove("success")
+                status.classList.add("error")
+              } else {
+              }
+            })
+          }
+        }).catch(error => {
+          status.classList.remove("success")
+          status.classList.add("error")
+        });
+      }
+      form.addEventListener("submit", handleSubmit)
+    </script>
   </div>
   <div class="copyright">
     <div class="container">

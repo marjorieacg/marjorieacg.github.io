@@ -214,6 +214,31 @@ footer {
   }
 }
 
+.form-status {
+  padding: 1rem;
+
+  & .form-message {
+    display: none;
+    text-align: right;
+  }
+
+  &.success .form-message.success {
+    display: initial;
+  }
+
+  &.error .form-message.error {
+    display: initial;
+  }
+}
+
+.color-success {
+  color: #307e30;
+}
+
+.color-error {
+  color: #ba3f3f;
+}
+
 /* MAIN */
 main {
   padding: 1.5rem min(1.5rem, 3vw);
