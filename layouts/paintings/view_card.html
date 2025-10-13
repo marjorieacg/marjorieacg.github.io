@@ -3,7 +3,12 @@
     <div class="card-img-wrapper">
       {{ $image := .Resources.Get .Params.Image }}
       {{ $imageResized := $image.Resize "900x" }}
-      <img class="card-img" src="{{ $image.Permalink}}" alt="{{ .Params.Image }}">
+      {{ $scaleFactor := 1 }}
+      {{ if .Params.scaleFactor }}
+      {{ $scaleFactor = .Params.scaleFactor }}
+      {{ end }}
+      <img class="card-img" src="{{ $image.Permalink}}" alt="{{ .Params.Image }}"
+        style="--scale-factor: {{ $scaleFactor }}">
     </div>
     {{ with $circleImg := .Resources.Get .Params.Circle }}
     {{ $processedCircleImg := $circleImg.Process "crop 705x1440"}}
@@ -15,7 +20,7 @@
       {{ .Params.Title }}
     </div>
     <div class="card-description">
-      {{ .Params.PaintType}}, {{ .Params.Year }}
+      {{ .Params.PaintType}}, {{ .Params.Support }}, {{ .Params.Dimensions }}
     </div>
   </div>
 

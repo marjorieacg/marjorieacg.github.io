@@ -144,7 +144,7 @@ header {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   font-weight: 600;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.25s ease-in-out;
   transform: initial;
 
   & .text {
@@ -152,7 +152,7 @@ header {
   }
 
   &.hidden {
-    transform: translateY(-100%);
+    transform: translateY(-200%);
   }
 }
 
@@ -258,24 +258,26 @@ main {
 
 /* PAINTING */
 .card {
+  --img-width: max(min(225px, 90vw), min(60vw, 450px));
   width: fit-content;
   margin: 0 auto;
   margin-top: 1rem;
   padding: 1rem 0;
-  transform: translateX(30px);
+  /* transform: translateX(30px); */
 }
 
 .card-img-container {
-  --img-width: max(min(225px, 90vw), min(60vw, 450px));
   position: relative;
   background-color: #FAF8EB;
   padding: 0.75rem;
   border-radius: 10px;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .card-img {
   display: block;
-  width: var(--img-width);
+  width: calc(var(--scale-factor, 1) * var(--img-width));
 
   /* border: 1px inset #2F2E32; */
 }
@@ -298,27 +300,43 @@ main {
 
 .card-circle-img {
   position: absolute;
-  transform: translate(-100%, -50%);
+  transform: translate(-85%, -50%);
   height: calc(0.6 * var(--img-width));
   left: 0;
   top: 50%;
+  z-index: -1;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .card-circle-img {
+  transform: translate(-100%, -50%);
 }
 
 .card-text {
   margin-left: 1rem;
   margin-top: 0.5rem;
+  max-width: var(--img-width);
 }
 
 .card-title {
-  font-style: italic;
+  font-size: 1.2rem;
 }
 
 .card-description {
-
-  font-size: 0.7rem;
+  margin-top: 0.15rem;
+  font-size: 1rem;
   font-style: italic;
 }
 
+@media (max-width: 1080px) {
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-description {
+    font-size: 0.8rem;
+  }
+}
 
 /* BUTTON */
 
