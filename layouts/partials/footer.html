@@ -2,12 +2,26 @@
   <div class="section-about section">
     <div class="container">
       <h2>À propos</h2>
-      <div style="margin: 0 1rem;">
-        Je m'appelle Marjorie
-        <br>
-        Je viens pas de la tessi
-        <br>
-        Je viens d'un p'tit village qui s'appelle Saint-Laurent du Pont!!
+      <div id="section-about-content">
+        {{ $image := resources.Get "img/contact-picture.png" }}
+        {{ $image = $image.Resize "800x" }}
+        <img src="{{ $image.Permalink }}" alt="{{ .Site.Title }}"
+          style="border-radius: 10px; max-width: min(100%, 600px);" />
+        <div style="margin: 0 1rem; max-width: 600px;">
+          <p>
+            J’utilise la peinture à l’huile pour m’exprimer dans des oeuvres figuratives, en particulier à travers
+            l’interprétation artistique de paysages.
+          </p>
+          <p>
+            Je travaille principalement à partir de photographies : au milieu des montagnes et d’autres espaces vastes,
+            je
+            sors, je contemple et je photographie la nature environnante qui devient mon sujet central.
+          </p>
+          <p>
+            Dans la réalisation, j’applique plusieurs couches de matières en explorant des couleurs vives ainsi que des
+            contrastes marqués.
+          </p>
+        </div>
       </div>
     </div>
   </div>

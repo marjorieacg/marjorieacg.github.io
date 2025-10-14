@@ -64,6 +64,10 @@ ul.unstyled {
   display: none;
 }
 
+img {
+  max-width: 100%;
+}
+
 /* HEADER */
 header {
   position: fixed;
@@ -144,7 +148,7 @@ header {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   font-weight: 600;
-  transition: transform 0.25s ease-in-out;
+  transition: transform 0.25s linear;
   transform: initial;
 
   & .text {
@@ -152,7 +156,7 @@ header {
   }
 
   &.hidden {
-    transform: translateY(-200%);
+    transform: translateY(-220%);
   }
 }
 
@@ -175,6 +179,25 @@ footer {
 
 .section {
   padding: 1rem min(1.5rem, 3vw);
+
+  & h2 {
+    padding: 0 0.75rem;
+  }
+}
+
+#section-about-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: min(2rem, 3vw);
+  align-items: center;
+  justify-items: center;
+}
+
+@media (max-width: 1080px) {
+  #section-about-content {
+    grid-template-columns: 1fr;
+  }
 }
 
 .contact-form {
@@ -193,7 +216,7 @@ footer {
 
 .input-block {
   display: flex;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
   max-width: 800px;
 
   & label {
