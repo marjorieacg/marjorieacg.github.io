@@ -1,5 +1,5 @@
 ---
-title: Oulujoki (Oulu river)
+title: Oulujoki (rivière Oulu, Finland)
 image: image.jpeg
 paintType: Huile
 dimensions: 21x29.7cm
