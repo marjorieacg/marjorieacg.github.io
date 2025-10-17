@@ -7,7 +7,8 @@
       {{ if .Params.scaleFactor }}
       {{ $scaleFactor = .Params.scaleFactor }}
       {{ end }}
-      <img class="card-img" src="{{ $image.Permalink}}" alt="{{ .Params.Image }}"
+      <img class="card-img" src="{{ $imageResized.Permalink}}" data-original="{{ $image.Permalink }}"
+        alt="{{ .Params.Title }}, {{ .Params.Support }}, {{ .Params.Dimensions }}"
         style="--scale-factor: {{ $scaleFactor }}">
     </div>
     {{ with $circleImg := .Resources.Get .Params.Circle }}

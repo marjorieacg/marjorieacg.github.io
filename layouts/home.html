@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ .Content }}
-<ul class="unstyled">
+<ul class="unstyled image-viewer">
   {{ $sortedPages := (where site.RegularPages "Section" "paintings") }}
   {{ $sortedPages = sort $sortedPages "Path" }}
   {{ range $sortedPages }}

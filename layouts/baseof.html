@@ -13,7 +13,7 @@
   {{ partial "footer.html" }}
 
   <!-- Script for fixed header -->
-  <script>
+  <script defer>
     const header = document.getElementById("header")
     const main = document.getElementById("main")
     const footer = document.getElementById("contact-form")
@@ -26,6 +26,15 @@
     resizeMain()
     document.addEventListener("resize", resizeMain)
   </script>
+  <!-- IMAGE VIEWER -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.js"
+    integrity="sha512-lZD0JiwhtP4UkFD1mc96NiTZ14L7MjyX5Khk8PMxJszXMLvu7kjq1sp4bb0tcL6MY+/4sIuiUxubOqoueHrW4w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  {{ with resources.Get "js/ImageViewerInit.js" }}
+  <script defer src="{{ .RelPermalink }}" crossorigin="anonymous"></script>
+  {{ end }}
+
+
 </body>
 
 </html>

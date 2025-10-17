@@ -319,6 +319,7 @@ main {
   position: absolute;
   top: 0;
   width: 100%;
+  pointer-events: none;
 }
 
 .card-circle-img {
