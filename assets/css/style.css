@@ -311,7 +311,7 @@ main {
   height: fit-content;
 }
 
-.card-img-wrapper::hover {
+.card-img-wrapper:hover {
   cursor: pointer;
 }
 
